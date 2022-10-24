@@ -7,7 +7,7 @@
 UShooterGameInstance::UShooterGameInstance(const FObjectInitializer& ObjectInitializer)
 {
 	GameInit();
-	//InitializeMainMenuScreen(ObjectInitializer);
+	InitializeMainMenuScreen(ObjectInitializer);
 }
 
 void UShooterGameInstance::GameInit()
@@ -24,11 +24,16 @@ void UShooterGameInstance::InitializeMainMenuScreen(const FObjectInitializer& Ob
 		return;
 	}
 	MainMenuWidgetClass = MainMenuWidget.Class;
+	if (GEngine)
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("MM Initialized"));
+
 }
 
 void UShooterGameInstance::ShowMainMenu()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Loading Main Menu Screen"));
+	if (GEngine)
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Loading Main Menu Screen"));
 
 	// Create widget
 	UW_MainMenu* MainMenuScreen = CreateWidget<UW_MainMenu>(this, MainMenuWidgetClass);
