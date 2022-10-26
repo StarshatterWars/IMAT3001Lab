@@ -40,6 +40,17 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Widgets")
 		void ShowMainMenu();
 
+	UFUNCTION(BlueprintCallable, Category = "Game Data")
+		void LoadGameData();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Game Data")
+		int32 PlayerSaveIndex;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Game Data")
+		FString  PlayerName;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Game Data")
+		bool  PlayerLoaded;
+
+
 private:
 	TSubclassOf<class UW_MainMenu> MainMenuWidgetClass;
 };
