@@ -5,7 +5,21 @@
 #include "CoreMinimal.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Engine/GameInstance.h"
+#include "Engine/DataTable.h"
 #include "ShooterGameInstance.generated.h"
+
+USTRUCT(BlueprintType)
+struct FS_PlayerDAta : public FTableRowBase
+{
+
+	GENERATED_BODY()
+
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		FString Name;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		FString Nickname;
+
+};
 
 /**
  *
